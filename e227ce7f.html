@@ -145,7 +145,7 @@
 
         function led_on() {
             var topic = device_id+'/in/write';
-            var commond = '{"rgbled_switch":true}';
+            var commond = '{"LED_switch":true}';
             client.publish(topic, commond);
         }
         // document.querySelector('#led_on').addEventListener('touchstart', led_on);
@@ -153,7 +153,7 @@
 
         function led_off() {
             var topic = device_id+'/in/write';
-            var commond = '{"rgbled_switch":false}';
+            var commond = '{"LED_switch":false}';
             client.publish(topic, commond);
         }
         // document.querySelector('#led_off').addEventListener('touchstart', led_off);
@@ -161,7 +161,7 @@
 
         function led_red() {
             var topic = device_id+'/in/write';
-            var commond = '{"rgbled_switch":true,"rgbled_hues":0, "rgbled_saturation":100, "rgbled_brightness":100}'; 
+            var commond = '{"LED_switch":true,"LED_hues":0, "LED_saturation":100, "LED_brightness":100}'; 
             client.publish(topic, commond);
         }
         // document.querySelector('#led_red').addEventListener('touchstart', led_red);
@@ -169,7 +169,7 @@
 
         function led_green() {
             var topic = device_id+'/in/write';
-            var commond = '{"rgbled_switch":true,"rgbled_hues":120, "rgbled_saturation":100, "rgbled_brightness":100}'; 
+            var commond = '{"LED_switch":true,"LED_hues":120, "LED_saturation":100, "LED_brightness":100}'; 
             client.publish(topic, commond);
         }
         // document.querySelector('#led_green').addEventListener('touchstart', led_green);
@@ -177,7 +177,7 @@
 
         function led_blue() {
             var topic = device_id+'/in/write';
-            var commond = '{"rgbled_switch":true,"rgbled_hues":240, "rgbled_saturation":100, "rgbled_brightness":100}'; 
+            var commond = '{"LED_switch":true,"LED_hues":240, "LED_saturation":100, "LED_brightness":100}'; 
             client.publish(topic, commond);
         }
         // document.querySelector('#led_blue').addEventListener('touchstart', led_blue);
