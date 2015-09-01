@@ -44,6 +44,20 @@
      </button>
  </div>
 
+  <div class="bar-footer" style="bottom:0;position:absolute;width:100%">
+     <div class="item item-input-inset">
+       <label class="item-input-wrapper">
+         <input type="text" placeholder="timedelay" id="timedelay">
+     </label>
+     <button class="button button-small button-royal" id="setTimedelay">
+         SetTime
+     </button>
+ </div>
+
+ <div class="button-bar">
+     <a class="button" style="background:white; color:black" id="getTimedelay">Gettime</a>
+ </div>
+
  <div class="button-bar">
      <a class="button" style="background:red; color:white" id="led_red">Red</a>
      <a class="button" style="background:green; color:white" id="led_green">Green</a>
@@ -143,6 +157,26 @@
         // document.querySelector('#send2uart').addEventListener('touchstart', send2uart);
         document.querySelector('#send2uart').addEventListener('click', send2uart);
 
+        var inputMsg = document.getElementById('timedelay');
+        // 将消息发送到指定的通道
+        function setTimedelay() {
+            if ( inputMsg.value.length == 0 ) return;
+            var topic = device_id+'/in/write';
+            var commond = '{"time_set":' + inputMsg.value +'}';
+            client.publish(topic, commond);
+            console.log(inputMsg.value);
+            inputMsg.value = '';
+        }
+        // document.querySelector('#send2uart').addEventListener('touchstart', send2uart);
+        document.querySelector('#setTimedelay').addEventListener('click', setTimedelay);
+
+        function getTimedelay() {
+            var topic = device_id+'/in/write';
+            var commond = '{"time_get":true}';
+            client.publish(topic, commond);
+        }
+        document.querySelector('#getTimedelay').addEventListener('click', getTimedelay);
+    
         function led_on() {
             var topic = device_id+'/in/write';
             var commond = '{"rgbled_switch":true}';
